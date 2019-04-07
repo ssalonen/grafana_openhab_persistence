@@ -8,5 +8,6 @@ WORKDIR /app
 RUN pip install -r requirements.txt
 
 ADD main.py /app
-ADD generate_key.py /app
+
+ENV PYTHONUNBUFFERED=true
 CMD [ "python3", "main.py" ]

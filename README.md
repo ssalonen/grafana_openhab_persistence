@@ -12,15 +12,6 @@ Grafana (Simple JSON Data Source) <-> flask <-> openHAB REST API
 
 Setup assumes linux system with docker. Tested only with fedora linux.
 
-## Preparation
-
-Encrypt secrets (one-time)
-```bash
-make generate_key
-```
-Enter your username (login email) and password. The username and password are encrypted in file `secret` while encryption key is stored in `key.key`.
-
-
 ## Usage
 
 Start grafana and flask:
@@ -33,16 +24,22 @@ You can access Grafana at `http://127.0.0.1:3000`. Use `admin:admin` to login.
 
 Follow these configuration steps:
 
-1. Add new Data Source ![Edit data source](doc/add-data-source.png "Edit data source")
-2. You can now use `timeserie` type targets in charts: ![Example chart](doc/chart-example.png "Example chart")
+### 1. Add new Data Source 
 
-## Missing features
+Use HTTP Basic authentication with your myopenhab.org credentials.
 
-- aggregation (`intervalMs`)
+![Edit data source](doc/add-data-source.png "Edit data source")
+
+### 2. Add `timeserie` chart
+
+You can now use `timeserie` type targets in charts: ![Example chart](doc/chart-example.png "Example chart")
+
+## Missing features / TODO
+
+- test :)
 - support for various item types
 - Grafana table format
 - proper server
-- authentication (pass to upstream)
 - any form of caching
 - proper error handling
 - ...
