@@ -29,6 +29,13 @@ make start_grafana
 make start_flask
 ```
 
+You can access Grafana at `http://127.0.0.1:3000`. Use `admin:admin` to login.
+
+Follow these configuration steps:
+
+1. Add new Data Source ![Edit data source](doc/add-data-source.png "Edit data source")
+2. You can now use `timeserie` type targets in charts: ![Example chart](doc/chart-example.png "Example chart")
+
 ## Missing features
 
 - aggregation (`intervalMs`)
@@ -36,7 +43,9 @@ make start_flask
 - Grafana table format
 - proper server
 - authentication (pass to upstream)
-- any cache
+- any form of caching
+- proper error handling
+- ...
 
 ## License
 
