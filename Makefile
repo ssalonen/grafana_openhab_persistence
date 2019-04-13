@@ -1,9 +1,8 @@
-PATH_KEY := $(shell readlink -f key.key)
-PATH_SECRET := $(shell readlink -f secret)
+VAR_LIB_GRAFANA := $(shell readlink -f VAR_LIB_GRAFANA)
 
 .PHONY: start_grafana
 start_grafana:
-	docker run --rm --network host -e GF_INSTALL_PLUGINS="grafana-simple-json-datasource" --rm -p 3000:3000 grafana/grafana
+	docker run --rm --network host -v ${VAR_LIB_GRAFANA}:/var/lib/grafana:z -e GF_INSTALL_PLUGINS="grafana-simple-json-datasource" --rm -p 3000:3000 grafana/grafana
 
 .PHONY: start_flask
 start_flask: build_flask
